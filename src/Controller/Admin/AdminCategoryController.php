@@ -45,8 +45,16 @@ class AdminCategoryController extends AbstractController
     }
 
     #[Route('/{id}', name: 'admin_category_show', methods: ['GET'])]
-    public function show(Category $category): Response
+    public function show(int $id,CategoryRepository $categoryRepository): Response
     {
+        $category = $categoryRepository->find($id);
+
+        if(!$category)
+        {
+            $this->addFlash("danger","La catégorie est introuvable");
+            return $this->redirectToRoute("admin_category_index");
+        }
+
         return $this->render('admin/category/show.html.twig', [
             'category' => $category,
         ]);
@@ -75,7 +83,7 @@ class AdminCategoryController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete'.$category->getId(), $request->request->get('_token'))) {
             $entityManager->remove($category);
-            $entityManager->flush();
+            $entityManager->flush(); 
         }
 
         return $this->redirectToRoute('admin_category_index', [], Response::HTTP_SEE_OTHER);
