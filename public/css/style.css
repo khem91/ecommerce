@@ -9,3 +9,9 @@
     height: 500px;
     object-fit: cover;
 }
+
+.imageDetailProduct
+{
+    height: 600px;
+    object-fit: cover;
+}

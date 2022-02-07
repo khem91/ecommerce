@@ -38,18 +38,12 @@ class ProductController extends AbstractController
             return $this->redirectToRoute("home");
         }
 
-        //Je vais chercher la categorie associée au produit
         $category = $product->getCategory();
 
-        //Je recupere tous les produits associés à cette catégorie
         $productsCategory = $category->getProducts();
 
-        //j'initiliase un tableau vide
-        //Mais j'ai pour but de le remplir avec 4 produits à suggérer au client
         $suggestedProducts = [];
 
-        //Je boucle sur les produits associés à la catégorie
-        //J'évite de mettre dans le tableau le meme produit que je presente actuellement
         foreach($productsCategory as $item)
         {
             if($item !== $product)
@@ -58,7 +52,6 @@ class ProductController extends AbstractController
             }
         }
 
-        //J'utilise une fonction php pour envoyer seulement 4 produits de suggestion
         $suggestedProducts = array_slice($suggestedProducts,0,4);
 
         return $this->render("customer/product/detail_product.html.twig",[
