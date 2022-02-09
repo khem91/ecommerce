@@ -93,4 +93,9 @@ class ContentInvoice
 
         return $this;
     }
+
+    public function getTotal()
+    {
+        return $this->getPriceProduct() * $this->getQuantity();
+    }
 }

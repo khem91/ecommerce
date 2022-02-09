@@ -1,34 +1,34 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light imageNav">
   <div class="container-fluid">
-    <a class="navbar-brand" href="{{ path('home') }}">SymEcommerce</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('uploads/images/logo.jpeg') }}" class="imageLogo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
 
         {% if app.user %}
-
+ 
             {% if app.user.roles[0] is same as "ROLE_ADMIN" %}
         
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ path('admin_home') }}">Administration</a>
+                <a class="nav-link text-black" aria-current="page" href="{{ path('admin_home') }}">Administration</a>
               </li>
 
             {% endif %}
 
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ path('app_logout') }}">Se déconnecter</a>
+              <a class="nav-link text-black" aria-current="page" href="{{ path('app_logout') }}">Se déconnecter</a>
             </li>
-
+ 
         {% else  %}
 
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ path('app_login') }}">Se connecter</a>
+              <a class="nav-link text-black" aria-current="page" href="{{ path('home') }}">Accueil</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ path('app_register') }}">S'inscrire</a>
+              <a class="nav-link text-black" aria-current="page" href="{{ path('app_register') }}">Inscription</a>
             </li>
 
         {% endif %}        
@@ -36,22 +36,24 @@
         {% for category in categoryRepository.findAll() %}
           
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">
+              <a class="nav-link text-black" aria-current="page" href="{{ path('boutique_product_show_by_category',{'id':category.id}) }}">
                 {{ category.name }}
               </a>
             </li>
 
         {% endfor %}
-        
 
       </ul>
-
+      
       <div class="d-flex">
-        <a class="nav-link text-white" aria-current="page" href="{{ path('cart_detail') }}">
+          <a class="nav-link text-black" aria-current="page" href="{{ path('profile_detail') }}">
+            Mon compte <i class="fas fa-user"></i>
+          </a>
+          <a class="nav-link text-black" aria-current="page" href="{{ path('cart_detail') }}">
             Mon panier <i class="fas fa-shopping-bag"></i>
           </a>
       </div>
-
-        </div>
+      
     </div>
+  </div>
 </nav>

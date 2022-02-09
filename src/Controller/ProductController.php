@@ -18,7 +18,7 @@ class ProductController extends AbstractController
         {
             return $this->redirectToRoute("home");
         }
-
+ 
         return $this->render("customer/product/show_by_category.html.twig",[
             'category' => $category
         ]);
@@ -40,7 +40,7 @@ class ProductController extends AbstractController
 
         $category = $product->getCategory();
 
-        $productsCategory = $category->getProducts();
+        $productsCategory = $category->getProducts(); 
 
         $suggestedProducts = [];
 

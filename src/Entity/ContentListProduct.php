@@ -64,4 +64,9 @@ class ContentListProduct
 
         return $this;
     }
+
+    public function getTotal()
+    {
+        return $this->getProduct()->getPrice() * $this->getQuantity();
+    }
 }

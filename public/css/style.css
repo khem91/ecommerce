@@ -1,17 +1,74 @@
+.imageCarousel
+{
+    height: 500px;
+    object-fit: cover;
+  
+}
+
+.couleurNav
+{
+    background-color: #e39940;
+   
+}
+
+body
+{
+    font-family: 'Alex Brush';font-size: 22px;
+    background-color: #f99e63;
+}
+
+.btn 
+{
+    background-color: #ffd179;
+    color:black;
+}
+
+.imageLogo
+{
+    height: 80px;
+    object-fit: cover;
+   
+}
+
+.btnBody
+{
+    background-color: #f99e63;
+}
+
+.backgroundInscription
+{
+    background-color: #ffd179;
+}
+
+.navigation
+{
+    color:#e39940
+}
+
 .imageCard
 {
     height: 300px;
     object-fit: cover;
 }
 
-.imageCarousel
-{
-    height: 500px;
-    object-fit: cover;
-}
-
-.imageDetailProduct
+.imageDetailProduit
 {
     height: 600px;
-    object-fit: cover;
+    object-fit: cover; 
+}
+
+.imageNav
+{
+    background-color: white;
+}
+
+.nav 
+{
+    font-family: 'Alex Brush';font-size: 22px;
+    color:black;
+}
+
+.nav a
+{
+    color:black;
 }

@@ -9,7 +9,7 @@
                     <h3 class="text-center">Les produits du panier</h3>
                 </div>
                 {% include "_messages_flash.html.twig" %}
-                <div>
+                <div class="col-12 mb-3">
                     <table class="table">
                         <thead>
                             <tr>
@@ -25,7 +25,7 @@
                                     <th>
                                         <div class="d-flex align-items-center">
                                             <img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
-                                        <div class="d-flex flex-column align-items-center">
+                                            <div class="d-flex flex-column align-items-center">
                                                 <p>{{ item.product.name }}</p>
                                                 <a class="btn btn-link text-danger" href="{{ path('cart_remove_product',{'id': item.product.id }) }}">Supprimer</a>
                                             </div>
@@ -34,9 +34,9 @@
                                     </th>
                                     <td>{{ item.product.price | priceEuro }}</td>
                                     <td>
-                                    <a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}"><i class="fas fa-minus-circle"></i></a>
-                                    <button class="btn btn-light"> {{ item.qty }}</button>
-                                    <a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier"><i class="fas fa-plus-circle"></i></a>
+                                        <a class="btn btn-dark" href="{{ path('cart_decrement_product',{'id' : item.product.id }) }}"><i class="fas fa-minus-circle"></i></a>
+                                        <button class="btn btn-light"> {{ item.qty }}</button>
+                                        <a class="btn btn-dark" href="{{ path('cart_add',{'id' : item.product.id }) }}?routeToRedirect=panier"><i class="fas fa-plus-circle"></i></a>
                                     </td>
                                     <td>{{ item.total | priceEuro }}</td>
                                 </tr>
@@ -51,6 +51,16 @@
                                     <p><strong>{{ totalPrixPanier | priceEuro}}</strong></p>
                                 </th>
                             </tr>
- 
+                            
+                        
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-12 d-flex justify-content-end">
+                    <a href="{{ path('boutique_commande_recap') }}" class="btn btn-success">Valider le panier</a>
+                </div>
+            </div>
+        </div>
     </section>
-{% endblock %} 
+
+{% endblock %}
