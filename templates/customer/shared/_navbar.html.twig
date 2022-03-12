@@ -1,3 +1,31 @@
+<div id="carouselExampleFade" class="carousel slide carousel-fade imageCarousel" data-bs-ride="carousel">
+    
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="{{ asset('uploads/images/brochette_poulet.jpeg') }}" class="d-block w-100 imageCarousel" alt="...">
+      </div>
+
+      <div class="carousel-item">
+        <img src="{{ asset('uploads/images/plat_sauté_crevettes.jpeg') }}" class="d-block w-100 imageCarousel" alt="...">
+      </div>
+
+      <div class="carousel-item">
+        <img src="{{ asset('uploads/images/poulet_coréen.jpeg') }}" class="d-block w-100 imageCarousel" alt="...">
+      </div>
+    </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Précédent</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Suivant</span>
+    </button>
+    
+</div>
+
 <nav class="navbar navbar-expand-lg navbar-light imageNav">
   <div class="container-fluid">
     <a class="navbar-brand" href="{{ path('home') }}"><img src="{{ asset('uploads/images/logo.jpeg') }}" class="imageLogo"></a>
@@ -18,10 +46,6 @@
 
             {% endif %}
 
-            <li class="nav-item">
-              <a class="nav-link text-black" aria-current="page" href="{{ path('app_logout') }}">Se déconnecter</a>
-            </li>
- 
         {% else  %}
 
             <li class="nav-item">
@@ -42,10 +66,12 @@
             </li>
 
         {% endfor %}
-
+ 
       </ul>
       
       <div class="d-flex">
+          <a class="nav-link text-black" aria-current="page" href="{{ path('app_logout') }}">
+          Se déconnecter</a>
           <a class="nav-link text-black" aria-current="page" href="{{ path('profile_detail') }}">
             Mon compte <i class="fas fa-user"></i>
           </a>

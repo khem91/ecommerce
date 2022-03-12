@@ -9,6 +9,7 @@ use App\Form\ContactSupportType;
 use App\Form\EditAccountPasswordType;
 use App\Repository\PurchaseRepository;
 use App\Services\Mail\SendPreparedMail;
+use Doctrine\Persistence\ObjectManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -178,6 +179,6 @@ class ProfileController extends AbstractController
                 'form' => $form->createView(),
             ]);
     
-            
-    }
+        }
+
 }     

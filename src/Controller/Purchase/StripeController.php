@@ -2,12 +2,8 @@
 
 namespace App\Controller\Purchase;
 
-
-
-
 use Stripe\Stripe;
 use App\Entity\User;
-
 use Stripe\Checkout\Session;
 use App\Services\Cart\HandleCart;
 use Symfony\Component\Routing\Annotation\Route;

@@ -61,4 +61,4 @@ class RecapPurchaseController extends AbstractController
             'totalPrixPanier' => $total
         ]);
     }
-}
+} 
