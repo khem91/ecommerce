@@ -5,7 +5,7 @@ namespace App\Controller\Purchase;
 use App\Entity\ContentInvoice;
 use App\Entity\Invoice;
 use App\Repository\PurchaseRepository;
-use App\Services\Cart\HandleCart;
+use App\Services\Cart\HandleCart; 
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -22,7 +22,7 @@ class PaymentResultController extends AbstractController
                 'user' => $user
             ],
             [
-                'id' => 'DESC'
+                'id' => 'DESC' 
             ]
         );
 

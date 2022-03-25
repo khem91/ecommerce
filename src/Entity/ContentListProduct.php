@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\ContentListProductRepository;
+use App\Entity\Product;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ContentListProductRepository;
 
 #[ORM\Entity(repositoryClass: ContentListProductRepository::class)]
 class ContentListProduct

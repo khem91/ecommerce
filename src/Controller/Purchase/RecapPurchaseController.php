@@ -39,7 +39,7 @@ class RecapPurchaseController extends AbstractController
  
             foreach($detailPanier as $item)
             {
-                $contentList = new ContentListProduct();
+                $contentList = new ContentListProduct(); 
 
                 $contentList->setProduct($item->getProduct());
                 $contentList->setQuantity($item->getQty());

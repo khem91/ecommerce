@@ -11,10 +11,14 @@
    
 }
 
+html, body{
+    height: 100%;
+}
+
 body
 {
     font-family: 'Alex Brush';font-size: 22px;
-    background-color: #f99e63;
+    background-color: #fcd2b7;
 }
 
 .btn 
@@ -71,4 +75,16 @@ body
 .nav a
 {
     color:black;
+}
+
+#contenu{
+    min-height: 100%;
+    position: relative;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%
 }

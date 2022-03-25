@@ -6,7 +6,7 @@
 <div class="container py-5">
 
     <div class="row">
-    
+    {% include "_messages_flash.html.twig" %}
         <div class="col-12 ">
             <a class="btn btn-dark" href="{{ path('profile_detail') }}">Revenir au profil</a>
         </div>
@@ -14,12 +14,12 @@
         <div class="col-sm-12 mt-3">
             <div class="card">
                 <div class="card-header">
-                    <h5 class="card-title">Ajouter une image au profil</h5>
+                    <h5 class="card-title">Envoyer un email au support</h5>
                 </div>
                 <div class="card-body">
                     {{ form_start(form) }}
                     {{ form_widget(form) }}
-                    <button class="btn btn-primary mt-3" type="submit">Enregistrer</button>
+                    <button class="btn btn-primary mt-3" type="submit">Envoyer</button>
                     {{ form_end(form) }}
                 </div>
             </div>
@@ -29,4 +29,3 @@
   </div>
  
 {% endblock %}
- 

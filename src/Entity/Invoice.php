@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
-use App\Repository\InvoiceRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
+use App\Entity\Purchase;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\InvoiceRepository;
+
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: InvoiceRepository::class)]
 class Invoice
@@ -21,11 +23,11 @@ class Invoice
 
     #[ORM\Column(type: 'integer')]
     private $total;
-
-    #[ORM\Column(type: 'boolean')]
+ 
+    #[ORM\Column(type: 'boolean')] 
     private $isPayed;
 
-    #[ORM\OneToMany(mappedBy: 'invoice', targetEntity: ContentInvoice::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'invoice', targetEntity: ContentInvoice::class, cascade: ['persist', 'remove'])]
     private $contentInvoices;
 
     public function __construct()
@@ -45,7 +47,7 @@ class Invoice
 
     public function setPurchase(Purchase $purchase): self
     {
-        $this->purchase = $purchase;
+        $this->purchase = $purchase; 
 
         return $this;
     }

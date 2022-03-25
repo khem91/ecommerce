@@ -1,6 +1,7 @@
-<?php 
+<?php
 
 namespace App\Controller\Purchase;
+
 
 use Stripe\Stripe;
 use App\Entity\User;
@@ -16,7 +17,7 @@ class StripeController extends AbstractController
     public function createSession(HandleCart $handleCart)
     {
         Stripe::setApiKey('sk_test_51KP373KquxoCfyEZdk2znLtqRWXwaLr0HCvS8sJLl7nW0Dm1EnnjKU70efopu70UVthoEQMyuKqoZdsEySZlmXmm00ENVj0cUG');
-        
+
         $YOUR_DOMAIN = 'http://localhost:8000';
 
         /** @var User $user */
@@ -26,8 +27,7 @@ class StripeController extends AbstractController
 
         $productForStripe = [];
 
-        foreach($productsDetail as $item)
-        {
+        foreach ($productsDetail as $item) {
             $productForStripe[] = [
                 'price_data' => [
                     'currency' => 'eur',
@@ -35,7 +35,7 @@ class StripeController extends AbstractController
                     'product_data' => [
                         'name' => $item->getProduct()->getName(),
                         'images' => [
-                           $item->getProduct()->getImagePath()
+                            $item->getProduct()->getImagePath()
                         ]
                     ]
                 ],
@@ -54,11 +54,10 @@ class StripeController extends AbstractController
                 $productForStripe
             ],
             'mode' => 'payment',
-              'success_url' => $YOUR_DOMAIN . '/boutique/paiement/success',
-              'cancel_url' => $YOUR_DOMAIN . '/boutique/paiement/cancel',
-          ]);
+            'success_url' => $YOUR_DOMAIN . '/boutique/paiement/success',
+            'cancel_url' => $YOUR_DOMAIN . '/boutique/paiement/cancel',
+        ]);
 
         return $this->redirect($checkout_session->url);
-
     }
 }

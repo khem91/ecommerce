@@ -28,18 +28,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for item in purchase.listProduct.contentListProducts %}
+                            {% for item in purchase.invoice.contentInvoices %}
                                 <tr>
                                     <th>
                                         <div class="d-flex align-items-center">
-                                            <img src="{{ item.product.imagePath }}" alt="" style="height:80px;object-fit:contain;">
+                                            <img src="{{ item.imageProduct }}" alt="" style="height:80px;object-fit:contain;">
                                             <div class="d-flex flex-column align-items-center">
-                                                <p>{{ item.product.name }}</p>
+                                                <p>{{ item.productName }}</p>
                                             </div>
                                            
                                         </div>
                                     </th>
-                                    <td>{{ item.product.price | priceEuro }}</td>
+                                    <td>{{ item.priceProduct | priceEuro }}</td>
                                     <td>
                                         <button class="btn btn-light"> {{ item.quantity }}</button>
                                      </td>

@@ -45,11 +45,11 @@ class Purchase
 
     #[ORM\OneToOne(mappedBy: 'purchase', targetEntity: ListProduct::class, cascade: ['persist', 'remove'])]
     private $listProduct;
-
+ 
     #[ORM\OneToOne(mappedBy: 'purchase', targetEntity: Invoice::class, cascade: ['persist', 'remove'])]
     private $invoice;
 
-    #[ORM\PrePersist]
+    #[ORM\PrePersist] 
     public function prePersist()
     {
         if(empty($this->createdAt))

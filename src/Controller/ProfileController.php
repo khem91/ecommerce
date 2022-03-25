@@ -47,7 +47,7 @@ class ProfileController extends AbstractController
 
             //Je dois sluggifier le nom pour le rendre safe :
             $safeFileName = $slugger->slug($originalFilename);
-
+ 
             //Je dois changer le nom pour le rendre unique
             $uniqFilename = $safeFileName . '-' .  md5(uniqid()) . '.' . $file->guessExtension();
 

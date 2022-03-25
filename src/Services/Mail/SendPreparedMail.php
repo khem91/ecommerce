@@ -18,13 +18,31 @@ class SendPreparedMail
     {
         $email = (new TemplatedEmail())
             ->from('noreply@monsite.com')
-            ->to('support@monsite.com')
+            ->to('khemboudy@gmail.com')
             ->subject($subjectMessage)
             ->htmlTemplate('email/support.html.twig')
             ->context([
                 'emailCustomer' => $email, 
                 'contentMessage' => $contentMessage,
                 'subjectMessage' => $subjectMessage
+            ]);
+
+        $this->mailer->send($email);
+
+    }
+
+    public function sendMailToContact(string $email,string $name, string $contentMessage, string $subjectMessage)
+    {
+        $email = (new TemplatedEmail())
+            ->from('noreply@monsite.com')
+            ->to('khemboudy@gmail.com')
+            ->subject($subjectMessage)
+            ->htmlTemplate('email/contact.html.twig')
+            ->context([
+                'emailCustomer' => $email, 
+                'contentMessage' => $contentMessage,
+                'subjectMessage' => $subjectMessage,
+                'name'=> $name
             ]);
 
         $this->mailer->send($email);

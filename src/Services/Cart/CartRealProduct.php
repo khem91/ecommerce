@@ -13,7 +13,7 @@ class CartRealProduct
     {
         return $this->product;
     }
-
+ 
     public function setProduct($product)
     {
         $this->product = $product;
